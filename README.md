@@ -10,3 +10,7 @@ It is better to have a consistent metric among different models. So I took out \
 Download: Baidu Yun https://pan.baidu.com/s/1mFHZ3RnW-RauODt5NgMW7A Access code：ihot 
 
 Credit of Docknet dataset goes to https://www.kaggle.com/gavinarmstrong/open-sprayer-images/
+
+# Notice
+
+Exclude `dataset_docknet/data/test/docks/5276_20468_13575.jpg` for the irregular size
