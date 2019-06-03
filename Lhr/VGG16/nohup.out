@@ -1,0 +1,706 @@
+2019-06-03 15:13:34.627556: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2019-06-03 15:13:35.165262: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1432] Found device 0 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.6325
+pciBusID: 0000:17:00.0
+totalMemory: 10.92GiB freeMemory: 201.56MiB
+2019-06-03 15:13:35.468151: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1432] Found device 1 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.6325
+pciBusID: 0000:65:00.0
+totalMemory: 10.91GiB freeMemory: 10.53GiB
+2019-06-03 15:13:35.468280: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0, 1
+2019-06-03 15:13:35.914240: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-06-03 15:13:35.914283: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 1 
+2019-06-03 15:13:35.914288: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N Y 
+2019-06-03 15:13:35.914291: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 1:   Y N 
+2019-06-03 15:13:35.914508: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 137 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:17:00.0, compute capability: 6.1)
+2019-06-03 15:13:35.914988: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 10184 MB memory) -> physical GPU (device: 1, name: GeForce GTX 1080 Ti, pci bus id: 0000:65:00.0, compute capability: 6.1)
+2019-06-03 15:13:35.966415: E tensorflow/stream_executor/cuda/cuda_driver.cc:806] failed to allocate 137.56M (144244736 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
+2019-06-03 15:13:46.753640: W tensorflow/core/common_runtime/bfc_allocator.cc:267] Allocator (GPU_0_bfc) ran out of memory trying to allocate 512.00MiB.  Current allocation summary follows.
+2019-06-03 15:13:46.753738: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (256): 	Total Chunks: 19, Chunks in use: 19. 4.8KiB allocated for chunks. 4.8KiB in use in bin. 832B client-requested in use in bin.
+2019-06-03 15:13:46.753762: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (512): 	Total Chunks: 3, Chunks in use: 3. 1.5KiB allocated for chunks. 1.5KiB in use in bin. 1.5KiB client-requested in use in bin.
+2019-06-03 15:13:46.753776: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (1024): 	Total Chunks: 5, Chunks in use: 5. 5.2KiB allocated for chunks. 5.2KiB in use in bin. 5.0KiB client-requested in use in bin.
+2019-06-03 15:13:46.753791: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (2048): 	Total Chunks: 7, Chunks in use: 7. 14.0KiB allocated for chunks. 14.0KiB in use in bin. 14.0KiB client-requested in use in bin.
+2019-06-03 15:13:46.753805: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (4096): 	Total Chunks: 1, Chunks in use: 1. 6.8KiB allocated for chunks. 6.8KiB in use in bin. 6.8KiB client-requested in use in bin.
+2019-06-03 15:13:46.753818: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (8192): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2019-06-03 15:13:46.753832: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (16384): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2019-06-03 15:13:46.753845: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (32768): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2019-06-03 15:13:46.753858: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (65536): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2019-06-03 15:13:46.753891: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (131072): 	Total Chunks: 1, Chunks in use: 1. 144.0KiB allocated for chunks. 144.0KiB in use in bin. 144.0KiB client-requested in use in bin.
+2019-06-03 15:13:46.753906: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (262144): 	Total Chunks: 1, Chunks in use: 1. 288.0KiB allocated for chunks. 288.0KiB in use in bin. 288.0KiB client-requested in use in bin.
+2019-06-03 15:13:46.753919: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (524288): 	Total Chunks: 1, Chunks in use: 1. 576.0KiB allocated for chunks. 576.0KiB in use in bin. 576.0KiB client-requested in use in bin.
+2019-06-03 15:13:46.753932: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (1048576): 	Total Chunks: 1, Chunks in use: 1. 1.12MiB allocated for chunks. 1.12MiB in use in bin. 1.12MiB client-requested in use in bin.
+2019-06-03 15:13:46.753944: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (2097152): 	Total Chunks: 2, Chunks in use: 2. 4.50MiB allocated for chunks. 4.50MiB in use in bin. 4.50MiB client-requested in use in bin.
+2019-06-03 15:13:46.753955: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (4194304): 	Total Chunks: 1, Chunks in use: 1. 4.50MiB allocated for chunks. 4.50MiB in use in bin. 4.50MiB client-requested in use in bin.
+2019-06-03 15:13:46.753969: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (8388608): 	Total Chunks: 5, Chunks in use: 5. 45.00MiB allocated for chunks. 45.00MiB in use in bin. 45.00MiB client-requested in use in bin.
+2019-06-03 15:13:46.753981: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (16777216): 	Total Chunks: 1, Chunks in use: 0. 24.00MiB allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2019-06-03 15:13:46.753995: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (33554432): 	Total Chunks: 1, Chunks in use: 1. 43.67MiB allocated for chunks. 43.67MiB in use in bin. 24.00MiB client-requested in use in bin.
+2019-06-03 15:13:46.754007: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (67108864): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2019-06-03 15:13:46.754039: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (134217728): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2019-06-03 15:13:46.754051: I tensorflow/core/common_runtime/bfc_allocator.cc:597] Bin (268435456): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2019-06-03 15:13:46.754063: I tensorflow/core/common_runtime/bfc_allocator.cc:613] Bin for 512.00MiB was 256.00MiB, Chunk State: 
+2019-06-03 15:13:46.754079: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694400000 of size 1280
+2019-06-03 15:13:46.754090: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694400500 of size 256
+2019-06-03 15:13:46.754100: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694400600 of size 256
+2019-06-03 15:13:46.754109: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694400700 of size 256
+2019-06-03 15:13:46.754118: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694400800 of size 256
+2019-06-03 15:13:46.754128: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694400900 of size 256
+2019-06-03 15:13:46.754137: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694400a00 of size 256
+2019-06-03 15:13:46.754146: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694400b00 of size 256
+2019-06-03 15:13:46.754157: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694400c00 of size 512
+2019-06-03 15:13:46.754167: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694400e00 of size 256
+2019-06-03 15:13:46.754176: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694400f00 of size 256
+2019-06-03 15:13:46.754192: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694401000 of size 256
+2019-06-03 15:13:46.754202: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694401100 of size 256
+2019-06-03 15:13:46.754212: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694401200 of size 1024
+2019-06-03 15:13:46.754222: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694401600 of size 256
+2019-06-03 15:13:46.754231: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694401700 of size 256
+2019-06-03 15:13:46.754241: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694401800 of size 256
+2019-06-03 15:13:46.754250: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694401900 of size 256
+2019-06-03 15:13:46.754260: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694401a00 of size 2048
+2019-06-03 15:13:46.754270: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694402200 of size 256
+2019-06-03 15:13:46.754279: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694402300 of size 256
+2019-06-03 15:13:46.754289: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694402400 of size 6912
+2019-06-03 15:13:46.754299: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694403f00 of size 256
+2019-06-03 15:13:46.754308: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694404000 of size 256
+2019-06-03 15:13:46.754318: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694404100 of size 147456
+2019-06-03 15:13:46.754328: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694428100 of size 294912
+2019-06-03 15:13:46.754338: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694470100 of size 512
+2019-06-03 15:13:46.754348: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694470300 of size 512
+2019-06-03 15:13:46.754357: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694470500 of size 589824
+2019-06-03 15:13:46.754367: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694500500 of size 1179648
+2019-06-03 15:13:46.754377: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694620500 of size 1024
+2019-06-03 15:13:46.754387: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694620900 of size 1024
+2019-06-03 15:13:46.754396: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694620d00 of size 1024
+2019-06-03 15:13:46.754406: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694621100 of size 2359296
+2019-06-03 15:13:46.754415: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694861100 of size 2359296
+2019-06-03 15:13:46.754425: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694aa1100 of size 4718592
+2019-06-03 15:13:46.754435: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694f21100 of size 2048
+2019-06-03 15:13:46.754444: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694f21900 of size 2048
+2019-06-03 15:13:46.754454: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694f22100 of size 2048
+2019-06-03 15:13:46.754463: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694f22900 of size 2048
+2019-06-03 15:13:46.754473: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694f23100 of size 2048
+2019-06-03 15:13:46.754482: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694f23900 of size 2048
+2019-06-03 15:13:46.754492: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7694f24100 of size 9437184
+2019-06-03 15:13:46.754502: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7695824100 of size 9437184
+2019-06-03 15:13:46.754511: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7696124100 of size 9437184
+2019-06-03 15:13:46.754526: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7696a24100 of size 9437184
+2019-06-03 15:13:46.754536: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7697324100 of size 9437184
+2019-06-03 15:13:46.754546: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Free  at 0x7f7697c24100 of size 25165824
+2019-06-03 15:13:46.754556: I tensorflow/core/common_runtime/bfc_allocator.cc:632] Chunk at 0x7f7699424100 of size 45786624
+2019-06-03 15:13:46.754566: I tensorflow/core/common_runtime/bfc_allocator.cc:638]      Summary of in-use Chunks by size: 
+2019-06-03 15:13:46.754578: I tensorflow/core/common_runtime/bfc_allocator.cc:641] 19 Chunks of size 256 totalling 4.8KiB
+2019-06-03 15:13:46.754590: I tensorflow/core/common_runtime/bfc_allocator.cc:641] 3 Chunks of size 512 totalling 1.5KiB
+2019-06-03 15:13:46.754600: I tensorflow/core/common_runtime/bfc_allocator.cc:641] 4 Chunks of size 1024 totalling 4.0KiB
+2019-06-03 15:13:46.754611: I tensorflow/core/common_runtime/bfc_allocator.cc:641] 1 Chunks of size 1280 totalling 1.2KiB
+2019-06-03 15:13:46.754622: I tensorflow/core/common_runtime/bfc_allocator.cc:641] 7 Chunks of size 2048 totalling 14.0KiB
+2019-06-03 15:13:46.754633: I tensorflow/core/common_runtime/bfc_allocator.cc:641] 1 Chunks of size 6912 totalling 6.8KiB
+2019-06-03 15:13:46.754644: I tensorflow/core/common_runtime/bfc_allocator.cc:641] 1 Chunks of size 147456 totalling 144.0KiB
+2019-06-03 15:13:46.754656: I tensorflow/core/common_runtime/bfc_allocator.cc:641] 1 Chunks of size 294912 totalling 288.0KiB
+2019-06-03 15:13:46.754667: I tensorflow/core/common_runtime/bfc_allocator.cc:641] 1 Chunks of size 589824 totalling 576.0KiB
+2019-06-03 15:13:46.754678: I tensorflow/core/common_runtime/bfc_allocator.cc:641] 1 Chunks of size 1179648 totalling 1.12MiB
+2019-06-03 15:13:46.754688: I tensorflow/core/common_runtime/bfc_allocator.cc:641] 2 Chunks of size 2359296 totalling 4.50MiB
+2019-06-03 15:13:46.754699: I tensorflow/core/common_runtime/bfc_allocator.cc:641] 1 Chunks of size 4718592 totalling 4.50MiB
+2019-06-03 15:13:46.754710: I tensorflow/core/common_runtime/bfc_allocator.cc:641] 5 Chunks of size 9437184 totalling 45.00MiB
+2019-06-03 15:13:46.754722: I tensorflow/core/common_runtime/bfc_allocator.cc:641] 1 Chunks of size 45786624 totalling 43.67MiB
+2019-06-03 15:13:46.754733: I tensorflow/core/common_runtime/bfc_allocator.cc:645] Sum Total of in-use chunks: 99.81MiB
+2019-06-03 15:13:46.754749: I tensorflow/core/common_runtime/bfc_allocator.cc:647] Stats: 
+Limit:                   144244736
+InUse:                   104654592
+MaxInUse:                129820416
+NumAllocs:                      75
+MaxAllocSize:             45786624
+
+2019-06-03 15:13:46.754768: W tensorflow/core/common_runtime/bfc_allocator.cc:271] **********************************************__________________*********************xxxxxxxxxxxxxxx
+2019-06-03 15:13:46.761430: W tensorflow/core/framework/op_kernel.cc:1273] OP_REQUIRES failed at conv_ops.cc:446 : Resource exhausted: OOM when allocating tensor with shape[32,64,256,256] and type float on /job:localhost/replica:0/task:0/device:GPU:0 by allocator GPU_0_bfc
+Using TensorFlow backend.
+Found 5488 images belonging to 2 classes.
+Traceback (most recent call last):
+  File "model_vgg16.py", line 34, in <module>
+    bottleneck_features_train = vgg_model.predict_generator(generator=generator, steps=5488 // 32)
+  File "/usr/local/lib/python3.5/dist-packages/keras/legacy/interfaces.py", line 91, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/keras/engine/training.py", line 1519, in predict_generator
+    verbose=verbose)
+  File "/usr/local/lib/python3.5/dist-packages/keras/engine/training_generator.py", line 450, in predict_generator
+    outs = model.predict_on_batch(x)
+  File "/usr/local/lib/python3.5/dist-packages/keras/engine/training.py", line 1272, in predict_on_batch
+    outputs = self.predict_function(ins)
+  File "/usr/local/lib/python3.5/dist-packages/keras/backend/tensorflow_backend.py", line 2666, in __call__
+    return self._call(inputs)
+  File "/usr/local/lib/python3.5/dist-packages/keras/backend/tensorflow_backend.py", line 2636, in _call
+    fetched = self._callable_fn(*array_vals)
+  File "/usr/local/lib/python3.5/dist-packages/tensorflow/python/client/session.py", line 1439, in __call__
+    run_metadata_ptr)
+  File "/usr/local/lib/python3.5/dist-packages/tensorflow/python/framework/errors_impl.py", line 528, in __exit__
+    c_api.TF_GetCode(self.status.status))
+tensorflow.python.framework.errors_impl.ResourceExhaustedError: OOM when allocating tensor with shape[32,64,256,256] and type float on /job:localhost/replica:0/task:0/device:GPU:0 by allocator GPU_0_bfc
+	 [[{{node block1_conv1/convolution}} = Conv2D[T=DT_FLOAT, data_format="NCHW", dilations=[1, 1, 1, 1], padding="SAME", strides=[1, 1, 1, 1], use_cudnn_on_gpu=true, _device="/job:localhost/replica:0/task:0/device:GPU:0"](block1_conv1/convolution-0-TransposeNHWCToNCHW-LayoutOptimizer, block1_conv1/kernel/read)]]
+Hint: If you want to see a list of allocated tensors when OOM happens, add report_tensor_allocations_upon_oom to RunOptions for current allocation info.
+
+Downloading data from https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5
+
+    8192/58889256 [..............................] - ETA: 35:36
+   40960/58889256 [..............................] - ETA: 14:13
+   90112/58889256 [..............................] - ETA: 7:44 
+  106496/58889256 [..............................] - ETA: 8:12
+  212992/58889256 [..............................] - ETA: 5:26
+  442368/58889256 [..............................] - ETA: 2:52
+  458752/58889256 [..............................] - ETA: 3:08
+  663552/58889256 [..............................] - ETA: 2:38
+  737280/58889256 [..............................] - ETA: 2:29
+  770048/58889256 [..............................] - ETA: 2:36
+ 1572864/58889256 [..............................] - ETA: 1:28
+ 1589248/58889256 [..............................] - ETA: 1:29
+ 1605632/58889256 [..............................] - ETA: 1:35
+ 2285568/58889256 [>.............................] - ETA: 1:07
+ 2334720/58889256 [>.............................] - ETA: 1:07
+ 2351104/58889256 [>.............................] - ETA: 1:11
+ 2629632/58889256 [>.............................] - ETA: 1:04
+ 2686976/58889256 [>.............................] - ETA: 1:04
+ 2703360/58889256 [>.............................] - ETA: 1:07
+ 2965504/58889256 [>.............................] - ETA: 1:02
+ 3031040/58889256 [>.............................] - ETA: 1:02
+ 3047424/58889256 [>.............................] - ETA: 1:05
+ 3309568/58889256 [>.............................] - ETA: 1:00
+ 3399680/58889256 [>.............................] - ETA: 1:00
+ 3416064/58889256 [>.............................] - ETA: 1:02
+ 3661824/58889256 [>.............................] - ETA: 58s 
+ 3760128/58889256 [>.............................] - ETA: 58s
+ 3784704/58889256 [>.............................] - ETA: 1:00
+ 4063232/58889256 [=>............................] - ETA: 56s 
+ 4145152/58889256 [=>............................] - ETA: 56s
+ 4161536/58889256 [=>............................] - ETA: 58s
+ 4341760/58889256 [=>............................] - ETA: 1:00
+ 4808704/58889256 [=>............................] - ETA: 54s 
+ 4825088/58889256 [=>............................] - ETA: 56s
+ 4997120/58889256 [=>............................] - ETA: 54s
+ 5087232/58889256 [=>............................] - ETA: 59s
+ 5472256/58889256 [=>............................] - ETA: 55s
+ 5537792/58889256 [=>............................] - ETA: 57s
+ 5644288/58889256 [=>............................] - ETA: 56s
+ 5693440/58889256 [=>............................] - ETA: 58s
+ 5816320/58889256 [=>............................] - ETA: 1:00
+ 6029312/58889256 [==>...........................] - ETA: 58s 
+ 6045696/58889256 [==>...........................] - ETA: 59s
+ 6094848/58889256 [==>...........................] - ETA: 59s
+ 6184960/58889256 [==>...........................] - ETA: 1:00
+ 6250496/58889256 [==>...........................] - ETA: 1:00
+ 6340608/58889256 [==>...........................] - ETA: 1:01
+ 6406144/58889256 [==>...........................] - ETA: 1:01
+ 6496256/58889256 [==>...........................] - ETA: 1:01
+ 6512640/58889256 [==>...........................] - ETA: 1:02
+ 6602752/58889256 [==>...........................] - ETA: 1:01
+ 6668288/58889256 [==>...........................] - ETA: 1:02
+ 6742016/58889256 [==>...........................] - ETA: 1:02
+ 6823936/58889256 [==>...........................] - ETA: 1:01
+ 6848512/58889256 [==>...........................] - ETA: 1:03
+ 6914048/58889256 [==>...........................] - ETA: 1:02
+ 7004160/58889256 [==>...........................] - ETA: 1:02
+ 7020544/58889256 [==>...........................] - ETA: 1:03
+ 7086080/58889256 [==>...........................] - ETA: 1:03
+ 7176192/58889256 [==>...........................] - ETA: 1:02
+ 7192576/58889256 [==>...........................] - ETA: 1:03
+ 7266304/58889256 [==>...........................] - ETA: 1:03
+ 7348224/58889256 [==>...........................] - ETA: 1:03
+ 7364608/58889256 [==>...........................] - ETA: 1:04
+ 7438336/58889256 [==>...........................] - ETA: 1:03
+ 7520256/58889256 [==>...........................] - ETA: 1:03
+ 7544832/58889256 [==>...........................] - ETA: 1:04
+ 7610368/58889256 [==>...........................] - ETA: 1:04
+ 7716864/58889256 [==>...........................] - ETA: 1:04
+ 7782400/58889256 [==>...........................] - ETA: 1:04
+ 7888896/58889256 [===>..........................] - ETA: 1:04
+ 7905280/58889256 [===>..........................] - ETA: 1:05
+ 7979008/58889256 [===>..........................] - ETA: 1:04
+ 8060928/58889256 [===>..........................] - ETA: 1:04
+ 8077312/58889256 [===>..........................] - ETA: 1:05
+ 8151040/58889256 [===>..........................] - ETA: 1:04
+ 8241152/58889256 [===>..........................] - ETA: 1:04
+ 8257536/58889256 [===>..........................] - ETA: 1:05
+ 8323072/58889256 [===>..........................] - ETA: 1:05
+ 8413184/58889256 [===>..........................] - ETA: 1:04
+ 8429568/58889256 [===>..........................] - ETA: 1:05
+ 8495104/58889256 [===>..........................] - ETA: 1:05
+ 8601600/58889256 [===>..........................] - ETA: 1:05
+ 8675328/58889256 [===>..........................] - ETA: 1:05
+ 8773632/58889256 [===>..........................] - ETA: 1:06
+ 8863744/58889256 [===>..........................] - ETA: 1:05
+ 8953856/58889256 [===>..........................] - ETA: 1:05
+ 8970240/58889256 [===>..........................] - ETA: 1:05
+ 9035776/58889256 [===>..........................] - ETA: 1:05
+ 9125888/58889256 [===>..........................] - ETA: 1:05
+ 9142272/58889256 [===>..........................] - ETA: 1:06
+ 9216000/58889256 [===>..........................] - ETA: 1:05
+ 9314304/58889256 [===>..........................] - ETA: 1:06
+ 9404416/58889256 [===>..........................] - ETA: 1:05
+ 9494528/58889256 [===>..........................] - ETA: 1:05
+ 9510912/58889256 [===>..........................] - ETA: 1:06
+ 9576448/58889256 [===>..........................] - ETA: 1:05
+ 9682944/58889256 [===>..........................] - ETA: 1:06
+ 9715712/58889256 [===>..........................] - ETA: 1:06
+ 9822208/58889256 [====>.........................] - ETA: 1:05
+ 9871360/58889256 [====>.........................] - ETA: 1:06
+ 9961472/58889256 [====>.........................] - ETA: 1:05
+10067968/58889256 [====>.........................] - ETA: 1:06
+10149888/58889256 [====>.........................] - ETA: 1:05
+10256384/58889256 [====>.........................] - ETA: 1:05
+10272768/58889256 [====>.........................] - ETA: 1:05
+10346496/58889256 [====>.........................] - ETA: 1:05
+10444800/58889256 [====>.........................] - ETA: 1:05
+10469376/58889256 [====>.........................] - ETA: 1:05
+10551296/58889256 [====>.........................] - ETA: 1:05
+10657792/58889256 [====>.........................] - ETA: 1:05
+10674176/58889256 [====>.........................] - ETA: 1:05
+10764288/58889256 [====>.........................] - ETA: 1:05
+10878976/58889256 [====>.........................] - ETA: 1:04
+10887168/58889256 [====>.........................] - ETA: 1:05
+10903552/58889256 [====>.........................] - ETA: 1:05
+10985472/58889256 [====>.........................] - ETA: 1:04
+11091968/58889256 [====>.........................] - ETA: 1:04
+11108352/58889256 [====>.........................] - ETA: 1:05
+11214848/58889256 [====>.........................] - ETA: 1:04
+11337728/58889256 [====>.........................] - ETA: 1:04
+11354112/58889256 [====>.........................] - ETA: 1:04
+11460608/58889256 [====>.........................] - ETA: 1:04
+11583488/58889256 [====>.........................] - ETA: 1:03
+11599872/58889256 [====>.........................] - ETA: 1:04
+11698176/58889256 [====>.........................] - ETA: 1:03
+11837440/58889256 [=====>........................] - ETA: 1:03
+11862016/58889256 [=====>........................] - ETA: 1:03
+11960320/58889256 [=====>........................] - ETA: 1:04
+12296192/58889256 [=====>........................] - ETA: 1:02
+12312576/58889256 [=====>........................] - ETA: 1:02
+12419072/58889256 [=====>........................] - ETA: 1:02
+12500992/58889256 [=====>........................] - ETA: 1:02
+12517376/58889256 [=====>........................] - ETA: 1:02
+12623872/58889256 [=====>........................] - ETA: 1:02
+12713984/58889256 [=====>........................] - ETA: 1:01
+12730368/58889256 [=====>........................] - ETA: 1:02
+12853248/58889256 [=====>........................] - ETA: 1:01
+12935168/58889256 [=====>........................] - ETA: 1:01
+12951552/58889256 [=====>........................] - ETA: 1:02
+13074432/58889256 [=====>........................] - ETA: 1:01
+13164544/58889256 [=====>........................] - ETA: 1:01
+13180928/58889256 [=====>........................] - ETA: 1:01
+13197312/58889256 [=====>........................] - ETA: 1:01
+13320192/58889256 [=====>........................] - ETA: 1:01
+13410304/58889256 [=====>........................] - ETA: 1:00
+13426688/58889256 [=====>........................] - ETA: 1:00
+13443072/58889256 [=====>........................] - ETA: 1:01
+13565952/58889256 [=====>........................] - ETA: 1:00
+13672448/58889256 [=====>........................] - ETA: 1:00
+13688832/58889256 [=====>........................] - ETA: 1:00
+13705216/58889256 [=====>........................] - ETA: 1:00
+13828096/58889256 [======>.......................] - ETA: 1:00
+13926400/58889256 [======>.......................] - ETA: 59s 
+13950976/58889256 [======>.......................] - ETA: 59s
+13967360/58889256 [======>.......................] - ETA: 1:00
+14090240/58889256 [======>.......................] - ETA: 59s 
+14188544/58889256 [======>.......................] - ETA: 59s
+14204928/58889256 [======>.......................] - ETA: 59s
+14229504/58889256 [======>.......................] - ETA: 59s
+14344192/58889256 [======>.......................] - ETA: 59s
+14467072/58889256 [======>.......................] - ETA: 58s
+14483456/58889256 [======>.......................] - ETA: 59s
+14606336/58889256 [======>.......................] - ETA: 58s
+14696448/58889256 [======>.......................] - ETA: 58s
+14729216/58889256 [======>.......................] - ETA: 58s
+14745600/58889256 [======>.......................] - ETA: 58s
+14761984/58889256 [======>.......................] - ETA: 58s
+14901248/58889256 [======>.......................] - ETA: 57s
+15007744/58889256 [======>.......................] - ETA: 57s
+15024128/58889256 [======>.......................] - ETA: 57s
+15040512/58889256 [======>.......................] - ETA: 57s
+15179776/58889256 [======>.......................] - ETA: 57s
+15286272/58889256 [======>.......................] - ETA: 57s
+15302656/58889256 [======>.......................] - ETA: 57s
+15319040/58889256 [======>.......................] - ETA: 57s
+15458304/58889256 [======>.......................] - ETA: 56s
+15564800/58889256 [======>.......................] - ETA: 56s
+15581184/58889256 [======>.......................] - ETA: 56s
+15597568/58889256 [======>.......................] - ETA: 56s
+15736832/58889256 [=======>......................] - ETA: 56s
+15843328/58889256 [=======>......................] - ETA: 55s
+15876096/58889256 [=======>......................] - ETA: 56s
+16015360/58889256 [=======>......................] - ETA: 55s
+16121856/58889256 [=======>......................] - ETA: 55s
+16154624/58889256 [=======>......................] - ETA: 55s
+16179200/58889256 [=======>......................] - ETA: 55s
+16293888/58889256 [=======>......................] - ETA: 55s
+16416768/58889256 [=======>......................] - ETA: 54s
+16433152/58889256 [=======>......................] - ETA: 54s
+16457728/58889256 [=======>......................] - ETA: 55s
+16572416/58889256 [=======>......................] - ETA: 54s
+16695296/58889256 [=======>......................] - ETA: 54s
+16711680/58889256 [=======>......................] - ETA: 54s
+16736256/58889256 [=======>......................] - ETA: 54s
+16875520/58889256 [=======>......................] - ETA: 54s
+16973824/58889256 [=======>......................] - ETA: 53s
+17006592/58889256 [=======>......................] - ETA: 53s
+17014784/58889256 [=======>......................] - ETA: 53s
+17154048/58889256 [=======>......................] - ETA: 53s
+17252352/58889256 [=======>......................] - ETA: 53s
+17285120/58889256 [=======>......................] - ETA: 53s
+17293312/58889256 [=======>......................] - ETA: 53s
+17432576/58889256 [=======>......................] - ETA: 53s
+17530880/58889256 [=======>......................] - ETA: 52s
+17571840/58889256 [=======>......................] - ETA: 52s
+17588224/58889256 [=======>......................] - ETA: 52s
+17711104/58889256 [========>.....................] - ETA: 52s
+17825792/58889256 [========>.....................] - ETA: 52s
+17850368/58889256 [========>.....................] - ETA: 52s
+17866752/58889256 [========>.....................] - ETA: 52s
+17989632/58889256 [========>.....................] - ETA: 52s
+18104320/58889256 [========>.....................] - ETA: 51s
+18128896/58889256 [========>.....................] - ETA: 51s
+18145280/58889256 [========>.....................] - ETA: 51s
+18284544/58889256 [========>.....................] - ETA: 51s
+18382848/58889256 [========>.....................] - ETA: 51s
+18407424/58889256 [========>.....................] - ETA: 51s
+18423808/58889256 [========>.....................] - ETA: 51s
+18563072/58889256 [========>.....................] - ETA: 51s
+18661376/58889256 [========>.....................] - ETA: 50s
+18702336/58889256 [========>.....................] - ETA: 50s
+18718720/58889256 [========>.....................] - ETA: 50s
+18841600/58889256 [========>.....................] - ETA: 50s
+18964480/58889256 [========>.....................] - ETA: 50s
+18980864/58889256 [========>.....................] - ETA: 50s
+18997248/58889256 [========>.....................] - ETA: 50s
+19136512/58889256 [========>.....................] - ETA: 50s
+19243008/58889256 [========>.....................] - ETA: 49s
+19275776/58889256 [========>.....................] - ETA: 49s
+19292160/58889256 [========>.....................] - ETA: 49s
+19431424/58889256 [========>.....................] - ETA: 49s
+19537920/58889256 [========>.....................] - ETA: 49s
+19570688/58889256 [========>.....................] - ETA: 49s
+19709952/58889256 [=========>....................] - ETA: 49s
+19832832/58889256 [=========>....................] - ETA: 48s
+19849216/58889256 [=========>....................] - ETA: 48s
+19865600/58889256 [=========>....................] - ETA: 48s
+20021248/58889256 [=========>....................] - ETA: 48s
+20127744/58889256 [=========>....................] - ETA: 48s
+20160512/58889256 [=========>....................] - ETA: 48s
+20176896/58889256 [=========>....................] - ETA: 48s
+20316160/58889256 [=========>....................] - ETA: 47s
+20439040/58889256 [=========>....................] - ETA: 47s
+20455424/58889256 [=========>....................] - ETA: 47s
+20471808/58889256 [=========>....................] - ETA: 47s
+20635648/58889256 [=========>....................] - ETA: 47s
+20733952/58889256 [=========>....................] - ETA: 47s
+20774912/58889256 [=========>....................] - ETA: 47s
+20791296/58889256 [=========>....................] - ETA: 47s
+20946944/58889256 [=========>....................] - ETA: 46s
+21069824/58889256 [=========>....................] - ETA: 46s
+21086208/58889256 [=========>....................] - ETA: 46s
+21102592/58889256 [=========>....................] - ETA: 46s
+21258240/58889256 [=========>....................] - ETA: 46s
+21381120/58889256 [=========>....................] - ETA: 45s
+21413888/58889256 [=========>....................] - ETA: 45s
+21430272/58889256 [=========>....................] - ETA: 46s
+21585920/58889256 [=========>....................] - ETA: 45s
+21725184/58889256 [==========>...................] - ETA: 45s
+21766144/58889256 [==========>...................] - ETA: 45s
+21782528/58889256 [==========>...................] - ETA: 45s
+21938176/58889256 [==========>...................] - ETA: 45s
+22077440/58889256 [==========>...................] - ETA: 44s
+22110208/58889256 [==========>...................] - ETA: 44s
+22126592/58889256 [==========>...................] - ETA: 44s
+22306816/58889256 [==========>...................] - ETA: 44s
+22421504/58889256 [==========>...................] - ETA: 44s
+22462464/58889256 [==========>...................] - ETA: 44s
+22495232/58889256 [==========>...................] - ETA: 44s
+22667264/58889256 [==========>...................] - ETA: 43s
+22806528/58889256 [==========>...................] - ETA: 43s
+22839296/58889256 [==========>...................] - ETA: 43s
+22863872/58889256 [==========>...................] - ETA: 43s
+23052288/58889256 [==========>...................] - ETA: 42s
+23191552/58889256 [==========>...................] - ETA: 42s
+23240704/58889256 [==========>...................] - ETA: 42s
+23257088/58889256 [==========>...................] - ETA: 42s
+23453696/58889256 [==========>...................] - ETA: 42s
+23592960/58889256 [===========>..................] - ETA: 41s
+23642112/58889256 [===========>..................] - ETA: 41s
+23658496/58889256 [===========>..................] - ETA: 41s
+23887872/58889256 [===========>..................] - ETA: 41s
+24027136/58889256 [===========>..................] - ETA: 41s
+24076288/58889256 [===========>..................] - ETA: 40s
+24092672/58889256 [===========>..................] - ETA: 41s
+24322048/58889256 [===========>..................] - ETA: 40s
+24477696/58889256 [===========>..................] - ETA: 40s
+24535040/58889256 [===========>..................] - ETA: 40s
+24551424/58889256 [===========>..................] - ETA: 40s
+24788992/58889256 [===========>..................] - ETA: 39s
+24952832/58889256 [===========>..................] - ETA: 39s
+25001984/58889256 [===========>..................] - ETA: 39s
+25034752/58889256 [===========>..................] - ETA: 39s
+25280512/58889256 [===========>..................] - ETA: 38s
+25452544/58889256 [===========>..................] - ETA: 38s
+25509888/58889256 [===========>..................] - ETA: 38s
+25542656/58889256 [============>.................] - ETA: 38s
+25804800/58889256 [============>.................] - ETA: 37s
+25976832/58889256 [============>.................] - ETA: 37s
+26025984/58889256 [============>.................] - ETA: 37s
+26066944/58889256 [============>.................] - ETA: 37s
+26345472/58889256 [============>.................] - ETA: 36s
+26533888/58889256 [============>.................] - ETA: 36s
+26599424/58889256 [============>.................] - ETA: 36s
+26640384/58889256 [============>.................] - ETA: 36s
+26918912/58889256 [============>.................] - ETA: 35s
+27107328/58889256 [============>.................] - ETA: 35s
+27181056/58889256 [============>.................] - ETA: 35s
+27205632/58889256 [============>.................] - ETA: 35s
+27230208/58889256 [============>.................] - ETA: 35s
+27541504/58889256 [=============>................] - ETA: 34s
+27754496/58889256 [=============>................] - ETA: 34s
+27820032/58889256 [=============>................] - ETA: 34s
+27852800/58889256 [=============>................] - ETA: 34s
+28188672/58889256 [=============>................] - ETA: 33s
+28409856/58889256 [=============>................] - ETA: 32s
+28483584/58889256 [=============>................] - ETA: 32s
+28516352/58889256 [=============>................] - ETA: 32s
+28835840/58889256 [=============>................] - ETA: 32s
+29057024/58889256 [=============>................] - ETA: 31s
+29106176/58889256 [=============>................] - ETA: 31s
+29179904/58889256 [=============>................] - ETA: 31s
+29229056/58889256 [=============>................] - ETA: 31s
+29597696/58889256 [==============>...............] - ETA: 30s
+29843456/58889256 [==============>...............] - ETA: 30s
+29925376/58889256 [==============>...............] - ETA: 30s
+29982720/58889256 [==============>...............] - ETA: 30s
+30310400/58889256 [==============>...............] - ETA: 29s
+30588928/58889256 [==============>...............] - ETA: 29s
+30638080/58889256 [==============>...............] - ETA: 29s
+30728192/58889256 [==============>...............] - ETA: 28s
+30777344/58889256 [==============>...............] - ETA: 28s
+31195136/58889256 [==============>...............] - ETA: 28s
+31457280/58889256 [===============>..............] - ETA: 27s
+31555584/58889256 [===============>..............] - ETA: 27s
+31588352/58889256 [===============>..............] - ETA: 27s
+31637504/58889256 [===============>..............] - ETA: 27s
+32079872/58889256 [===============>..............] - ETA: 26s
+32374784/58889256 [===============>..............] - ETA: 26s
+32456704/58889256 [===============>..............] - ETA: 26s
+32522240/58889256 [===============>..............] - ETA: 26s
+32751616/58889256 [===============>..............] - ETA: 25s
+32964608/58889256 [===============>..............] - ETA: 28s
+36552704/58889256 [=================>............] - ETA: 22s
+36700160/58889256 [=================>............] - ETA: 22s
+36847616/58889256 [=================>............] - ETA: 22s
+37257216/58889256 [=================>............] - ETA: 21s
+37519360/58889256 [==================>...........] - ETA: 21s
+37535744/58889256 [==================>...........] - ETA: 21s
+37797888/58889256 [==================>...........] - ETA: 21s
+37814272/58889256 [==================>...........] - ETA: 21s
+38092800/58889256 [==================>...........] - ETA: 20s
+38387712/58889256 [==================>...........] - ETA: 20s
+38682624/58889256 [==================>...........] - ETA: 20s
+38993920/58889256 [==================>...........] - ETA: 19s
+39288832/58889256 [===================>..........] - ETA: 19s
+39305216/58889256 [===================>..........] - ETA: 19s
+39600128/58889256 [===================>..........] - ETA: 19s
+39616512/58889256 [===================>..........] - ETA: 19s
+39927808/58889256 [===================>..........] - ETA: 18s
+40239104/58889256 [===================>..........] - ETA: 18s
+40255488/58889256 [===================>..........] - ETA: 18s
+40550400/58889256 [===================>..........] - ETA: 18s
+40566784/58889256 [===================>..........] - ETA: 18s
+40878080/58889256 [===================>..........] - ETA: 17s
+40894464/58889256 [===================>..........] - ETA: 17s
+41189376/58889256 [===================>..........] - ETA: 17s
+41205760/58889256 [===================>..........] - ETA: 17s
+41517056/58889256 [====================>.........] - ETA: 17s
+41533440/58889256 [====================>.........] - ETA: 17s
+41828352/58889256 [====================>.........] - ETA: 16s
+41844736/58889256 [====================>.........] - ETA: 16s
+42156032/58889256 [====================>.........] - ETA: 16s
+42172416/58889256 [====================>.........] - ETA: 16s
+42467328/58889256 [====================>.........] - ETA: 16s
+42483712/58889256 [====================>.........] - ETA: 16s
+42795008/58889256 [====================>.........] - ETA: 15s
+42811392/58889256 [====================>.........] - ETA: 15s
+43106304/58889256 [====================>.........] - ETA: 15s
+43122688/58889256 [====================>.........] - ETA: 15s
+43433984/58889256 [=====================>........] - ETA: 15s
+43450368/58889256 [=====================>........] - ETA: 15s
+43745280/58889256 [=====================>........] - ETA: 14s
+43761664/58889256 [=====================>........] - ETA: 15s
+44072960/58889256 [=====================>........] - ETA: 14s
+44089344/58889256 [=====================>........] - ETA: 14s
+44400640/58889256 [=====================>........] - ETA: 14s
+44417024/58889256 [=====================>........] - ETA: 14s
+44728320/58889256 [=====================>........] - ETA: 13s
+44744704/58889256 [=====================>........] - ETA: 14s
+44826624/58889256 [=====================>........] - ETA: 14s
+44990464/58889256 [=====================>........] - ETA: 13s
+45006848/58889256 [=====================>........] - ETA: 13s
+45318144/58889256 [======================>.......] - ETA: 13s
+45383680/58889256 [======================>.......] - ETA: 13s
+45400064/58889256 [======================>.......] - ETA: 13s
+45613056/58889256 [======================>.......] - ETA: 13s
+45629440/58889256 [======================>.......] - ETA: 13s
+45645824/58889256 [======================>.......] - ETA: 13s
+45875200/58889256 [======================>.......] - ETA: 12s
+45891584/58889256 [======================>.......] - ETA: 12s
+46137344/58889256 [======================>.......] - ETA: 12s
+46153728/58889256 [======================>.......] - ETA: 12s
+46170112/58889256 [======================>.......] - ETA: 12s
+46415872/58889256 [======================>.......] - ETA: 12s
+46432256/58889256 [======================>.......] - ETA: 12s
+46448640/58889256 [======================>.......] - ETA: 12s
+46694400/58889256 [======================>.......] - ETA: 12s
+46727168/58889256 [======================>.......] - ETA: 12s
+46972928/58889256 [======================>.......] - ETA: 11s
+47005696/58889256 [======================>.......] - ETA: 11s
+47022080/58889256 [======================>.......] - ETA: 11s
+47267840/58889256 [=======================>......] - ETA: 11s
+47300608/58889256 [=======================>......] - ETA: 11s
+47333376/58889256 [=======================>......] - ETA: 11s
+47611904/58889256 [=======================>......] - ETA: 11s
+47644672/58889256 [=======================>......] - ETA: 11s
+47923200/58889256 [=======================>......] - ETA: 10s
+47955968/58889256 [=======================>......] - ETA: 10s
+48234496/58889256 [=======================>......] - ETA: 10s
+48250880/58889256 [=======================>......] - ETA: 10s
+48267264/58889256 [=======================>......] - ETA: 10s
+48283648/58889256 [=======================>......] - ETA: 10s
+48562176/58889256 [=======================>......] - ETA: 10s
+48578560/58889256 [=======================>......] - ETA: 10s
+48594944/58889256 [=======================>......] - ETA: 10s
+48857088/58889256 [=======================>......] - ETA: 9s 
+48889856/58889256 [=======================>......] - ETA: 9s
+48922624/58889256 [=======================>......] - ETA: 9s
+49217536/58889256 [========================>.....] - ETA: 9s
+49233920/58889256 [========================>.....] - ETA: 9s
+49250304/58889256 [========================>.....] - ETA: 9s
+49512448/58889256 [========================>.....] - ETA: 9s
+49561600/58889256 [========================>.....] - ETA: 9s
+49577984/58889256 [========================>.....] - ETA: 9s
+49840128/58889256 [========================>.....] - ETA: 8s
+49889280/58889256 [========================>.....] - ETA: 8s
+49905664/58889256 [========================>.....] - ETA: 8s
+49922048/58889256 [========================>.....] - ETA: 8s
+50216960/58889256 [========================>.....] - ETA: 8s
+50233344/58889256 [========================>.....] - ETA: 8s
+50249728/58889256 [========================>.....] - ETA: 8s
+50544640/58889256 [========================>.....] - ETA: 8s
+50561024/58889256 [========================>.....] - ETA: 8s
+50577408/58889256 [========================>.....] - ETA: 8s
+50872320/58889256 [========================>.....] - ETA: 7s
+50905088/58889256 [========================>.....] - ETA: 7s
+51167232/58889256 [=========================>....] - ETA: 7s
+51200000/58889256 [=========================>....] - ETA: 7s
+51232768/58889256 [=========================>....] - ETA: 7s
+51249152/58889256 [=========================>....] - ETA: 7s
+51544064/58889256 [=========================>....] - ETA: 7s
+51560448/58889256 [=========================>....] - ETA: 7s
+51576832/58889256 [=========================>....] - ETA: 7s
+51871744/58889256 [=========================>....] - ETA: 6s
+51888128/58889256 [=========================>....] - ETA: 6s
+51904512/58889256 [=========================>....] - ETA: 6s
+52183040/58889256 [=========================>....] - ETA: 6s
+52199424/58889256 [=========================>....] - ETA: 6s
+52215808/58889256 [=========================>....] - ETA: 6s
+52232192/58889256 [=========================>....] - ETA: 6s
+52494336/58889256 [=========================>....] - ETA: 6s
+52527104/58889256 [=========================>....] - ETA: 6s
+52559872/58889256 [=========================>....] - ETA: 6s
+52576256/58889256 [=========================>....] - ETA: 6s
+52854784/58889256 [=========================>....] - ETA: 5s
+52887552/58889256 [=========================>....] - ETA: 5s
+52903936/58889256 [=========================>....] - ETA: 5s
+53198848/58889256 [==========================>...] - ETA: 5s
+53215232/58889256 [==========================>...] - ETA: 5s
+53231616/58889256 [==========================>...] - ETA: 5s
+53493760/58889256 [==========================>...] - ETA: 5s
+53526528/58889256 [==========================>...] - ETA: 5s
+53559296/58889256 [==========================>...] - ETA: 5s
+53575680/58889256 [==========================>...] - ETA: 5s
+53854208/58889256 [==========================>...] - ETA: 4s
+53870592/58889256 [==========================>...] - ETA: 4s
+53886976/58889256 [==========================>...] - ETA: 4s
+53903360/58889256 [==========================>...] - ETA: 4s
+54165504/58889256 [==========================>...] - ETA: 4s
+54214656/58889256 [==========================>...] - ETA: 4s
+54231040/58889256 [==========================>...] - ETA: 4s
+54247424/58889256 [==========================>...] - ETA: 4s
+54509568/58889256 [==========================>...] - ETA: 4s
+54558720/58889256 [==========================>...] - ETA: 4s
+54575104/58889256 [==========================>...] - ETA: 4s
+54591488/58889256 [==========================>...] - ETA: 4s
+54870016/58889256 [==========================>...] - ETA: 3s
+54902784/58889256 [==========================>...] - ETA: 3s
+54935552/58889256 [==========================>...] - ETA: 3s
+54951936/58889256 [==========================>...] - ETA: 3s
+55246848/58889256 [===========================>..] - ETA: 3s
+55279616/58889256 [===========================>..] - ETA: 3s
+55296000/58889256 [===========================>..] - ETA: 3s
+55574528/58889256 [===========================>..] - ETA: 3s
+55623680/58889256 [===========================>..] - ETA: 3s
+55656448/58889256 [===========================>..] - ETA: 3s
+56000512/58889256 [===========================>..] - ETA: 2s
+56229888/58889256 [===========================>..] - ETA: 2s
+56246272/58889256 [===========================>..] - ETA: 2s
+56377344/58889256 [===========================>..] - ETA: 2s
+56492032/58889256 [===========================>..] - ETA: 2s
+56688640/58889256 [===========================>..] - ETA: 2s
+56852480/58889256 [===========================>..] - ETA: 2s
+56868864/58889256 [===========================>..] - ETA: 1s
+56885248/58889256 [===========================>..] - ETA: 1s
+57049088/58889256 [============================>.] - ETA: 1s
+57065472/58889256 [============================>.] - ETA: 1s
+57081856/58889256 [============================>.] - ETA: 1s
+57245696/58889256 [============================>.] - ETA: 1s
+57278464/58889256 [============================>.] - ETA: 1s
+57294848/58889256 [============================>.] - ETA: 1s
+57458688/58889256 [============================>.] - ETA: 1s
+57491456/58889256 [============================>.] - ETA: 1s
+57507840/58889256 [============================>.] - ETA: 1s
+57655296/58889256 [============================>.] - ETA: 1s
+57720832/58889256 [============================>.] - ETA: 1s
+57737216/58889256 [============================>.] - ETA: 1s
+57917440/58889256 [============================>.] - ETA: 0s
+57950208/58889256 [============================>.] - ETA: 0s
+57966592/58889256 [============================>.] - ETA: 0s
+58146816/58889256 [============================>.] - ETA: 0s
+58179584/58889256 [============================>.] - ETA: 0s
+58195968/58889256 [============================>.] - ETA: 0s
+58376192/58889256 [============================>.] - ETA: 0s
+58408960/58889256 [============================>.] - ETA: 0s
+58425344/58889256 [============================>.] - ETA: 0s
+58605568/58889256 [============================>.] - ETA: 0s
+58638336/58889256 [============================>.] - ETA: 0s
+58654720/58889256 [============================>.] - ETA: 0s
+58834944/58889256 [============================>.] - ETA: 0s
+58884096/58889256 [============================>.] - ETA: 0s
+58892288/58889256 [==============================] - 59s 1us/step
+2019-06-03 15:24:58.442526: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
+2019-06-03 15:24:58.617695: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 0 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:17:00.0
+totalMemory: 10.92GiB freeMemory: 10.77GiB
+2019-06-03 15:24:58.696740: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 1 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:18:00.0
+totalMemory: 10.92GiB freeMemory: 10.77GiB
+2019-06-03 15:24:58.816605: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 2 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:65:00.0
+totalMemory: 10.91GiB freeMemory: 10.76GiB
+2019-06-03 15:24:58.939616: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 3 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:b3:00.0
+totalMemory: 10.92GiB freeMemory: 10.77GiB
+2019-06-03 15:24:58.944561: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1484] Adding visible gpu devices: 0, 1, 2, 3
+2019-06-03 15:25:05.144924: I tensorflow/core/common_runtime/gpu/gpu_device.cc:965] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-06-03 15:25:05.144967: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971]      0 1 2 3 
+2019-06-03 15:25:05.144973: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 0:   N Y Y Y 
+2019-06-03 15:25:05.144977: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 1:   Y N Y Y 
+2019-06-03 15:25:05.144981: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 2:   Y Y N Y 
+2019-06-03 15:25:05.144984: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 3:   Y Y Y N 
+2019-06-03 15:25:05.157298: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10419 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:17:00.0, compute capability: 6.1)
+2019-06-03 15:25:05.287334: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 10419 MB memory) -> physical GPU (device: 1, name: GeForce GTX 1080 Ti, pci bus id: 0000:18:00.0, compute capability: 6.1)
+2019-06-03 15:25:05.388171: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 10410 MB memory) -> physical GPU (device: 2, name: GeForce GTX 1080 Ti, pci bus id: 0000:65:00.0, compute capability: 6.1)
+2019-06-03 15:25:05.491242: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 10419 MB memory) -> physical GPU (device: 3, name: GeForce GTX 1080 Ti, pci bus id: 0000:b3:00.0, compute capability: 6.1)
+Using TensorFlow backend.
+Found 5488 images belonging to 2 classes.
+Found 670 images belonging to 2 classes.

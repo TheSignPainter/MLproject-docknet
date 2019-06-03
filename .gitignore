@@ -108,3 +108,9 @@ venv.bak/
 
 # .jpg sources in data/ folder
 data/**/*.jpg
+/VGG16/bottleneck_features_train.npy
+/VGG16/bottleneck_features_validation.npy
+/VGG16/bottleneck_fc_model.h5
+Lhr/VGG16/bottleneck_fc_model.h5
+Lhr/VGG16/bottleneck_features_train.npy
+Lhr/VGG16/bottleneck_features_validation.npy
