@@ -8,6 +8,7 @@ from pathlib import Path
 
 
 class DockDataset(data.Dataset):
+    
     def __init__(self, featdir='data/train', is_train=True, shuffle=True):
         self.data_path = []
         self.target = []

@@ -115,7 +115,6 @@ def main(**kwargs):
 def score(**kwargs):
     data_dir = kwargs.get('data_dir', '../../dataset_docknet/data')
     model_dir = kwargs.get('model_dir', 'models')
-    log_file = kwargs.get('log_file', 'LOG')
     batch_size = kwargs.get('batch_size', 32)
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
