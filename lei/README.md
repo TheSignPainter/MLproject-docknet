@@ -11,7 +11,7 @@ We normalized the image data. shuffled before training.
 The model we used is a simple variation of resnet model.
 
 layer name | kernel size | filters | # of residual blocks 
-- | - | -
+--|: --|: --|:
 conv\_1 | 3x3 | 64 | 3
 conv\_2 | 3x3 | 128 | 3
 conv\_3 | 3x3 | 256 | 3
