@@ -28,7 +28,7 @@ def train(dataloader, model, optimizer, criterion, device):
     return epoch_loss / total_num
 
 
-def eval(dataloader, model, device):
+def evaluate(dataloader, model, device):
     c = 0
     total_num = 0
     with torch.no_grad():
@@ -97,7 +97,7 @@ def main(**kwargs):
         model.train()
         train_loss = train(train_loader, model, optimizer, criterion, device)
         model.eval()
-        cv_acc = eval(cv_loader, model, device)
+        cv_acc = evaluate(cv_loader, model, device)
 
         message = { f"[*] Epoch: [{e+1:3d}/{epoch:3d}] - "
                     f"Training Loss: {train_loss:.5f}, "
@@ -133,7 +133,7 @@ def score(**kwargs):
     model.load_state_dict(torch.load(os.path.join(model_dir, "model_best.pth")))
     model.to(device)
     model.eval()
-    eval_acc = eval(eval_loader, model, device)
+    eval_acc = evaluate(eval_loader, model, device)
     print(f"Test Accuracy is: {eval_acc:.2f}%")
 
 
