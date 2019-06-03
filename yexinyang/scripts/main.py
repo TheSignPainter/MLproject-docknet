@@ -19,7 +19,8 @@ def train(dataloader, model, optimizer, criterion, device):
         data, target = data.to(device), target.to(device).squeeze()
         total_num += len(data)
         optimizer.zero_grad()
-        out = model(data)
+        # out = model(data)
+        out = model(data, target)
         loss = criterion(out, target)
         epoch_loss += loss.item()
         loss.backward()
@@ -46,7 +47,7 @@ def main(**kwargs):
     log_file = kwargs.get('log_file', 'LOG')
     epoch = kwargs.get('epoch', 10)
     batch_size = kwargs.get('batch_size', 32)
-    lr = kwargs.get('lr', 1e-3)
+    lr = kwargs.get('lr', 1e-2)
 
     if not os.path.exists(model_dir):
         os.makedirs(model_dir)
@@ -63,8 +64,8 @@ def main(**kwargs):
 
     logger.info(kwargs)
 
-    train_dataset = DockDataset(featdir=os.path.join(data_dir, 'train'))
-    cv_dataset = DockDataset(featdir=os.path.join(data_dir, 'valid'))
+    train_dataset = DockDataset(featdir=os.path.join(data_dir, 'train'), is_train=True)
+    cv_dataset = DockDataset(featdir=os.path.join(data_dir, 'valid'), is_train=False, shuffle=False)
 
     train_loader = DataLoader(
         train_dataset,
@@ -77,20 +78,21 @@ def main(**kwargs):
     cv_loader = DataLoader(
         cv_dataset,
         batch_size=batch_size,
+        num_workers=4,
         shuffle=False,
-        drop_last=False,
+        drop_last=True,
     )
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    model = resnet18(pretrained=False, progress=True).to(device)
+    # model = resnet18(pretrained=True, progress=True).to(device)
+    model = resnet18_lsoftmax(pretrained=True, progress=True, device=device).to(device)
     criterion = nn.CrossEntropyLoss().to(device)
-    optimizer = optim.Adam(model.parameters(), lr=lr)
+    optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9)
 
     logger.info(model)
 
     best_acc = 0.0
 
-    time_list = []
     for e in range(epoch):
         model.train()
         train_loss = train(train_loader, model, optimizer, criterion, device)
@@ -103,12 +105,20 @@ def main(**kwargs):
 
         logger.info(message)
 
-        torch.save(model, os.path.join(model_dir, f"checkpoint_{e+1}.pth"))
+        torch.save(model.state_dict(), os.path.join(model_dir, f"checkpoint_{e+1}.pth"))
 
         if cv_acc >= best_acc:
-            torch.save(model, os.path.join(model_dir, f"model_best.pth"))
+            torch.save(model.state_dict(), os.path.join(model_dir, f"model_best.pth"))
             best_acc = cv_acc
 
+
+def score(**kwargs):
+    data_dir = kwargs.get('data_dir', '../../dataset_docknet/data')
+    model_dir = kwargs.get('model_dir', 'models')
+    log_file = kwargs.get('log_file', 'LOG')
+    batch_size = kwargs.get('batch_size', 32)
+
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
     eval_dataset = DockDataset(featdir=os.path.join(data_dir, 'test'), is_train=False, shuffle=False)
 
@@ -118,12 +128,18 @@ def main(**kwargs):
         shuffle=False,
         drop_last=False,
     )
-
-    model_best = torch.load(os.path.join(model_dir, f"model_best.pth"))
-    model_best.eval()
-    eval_acc = eval(eval_loader, model_best, device)
-    logger.info(f"Test Accuracy is: {eval_acc:.2f}%")
+    
+    # model = resnet18()
+    model = resnet18_lsoftmax(device=device)
+    model.load_state_dict(torch.load(os.path.join(model_dir, "model_best.pth")))
+    model.to(device)
+    model.eval()
+    eval_acc = eval(eval_loader, model, device)
+    print(f"Test Accuracy is: {eval_acc:.2f}%")
 
 
 if __name__ == '__main__':
-    fire.Fire(main)
+    fire.Fire({
+        'train': main,
+        'test': score,
+    })

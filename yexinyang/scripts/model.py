@@ -1,4 +1,7 @@
+import torch
 import torch.nn as nn
+
+from lsoftmax import LSoftmaxLinear
 
 try:
     from torch.hub import load_state_dict_from_url
@@ -6,7 +9,7 @@ except ImportError:
     from torch.utils.model_zoo import load_url as load_state_dict_from_url
 
 
-__all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50', 'resnet101',
+__all__ = ['ResNet', 'resnet18', 'resnet18_lsoftmax', 'resnet34', 'resnet50', 'resnet101',
            'resnet152', 'resnext50_32x4d', 'resnext101_32x8d']
 
 
@@ -210,12 +213,47 @@ class ResNet(nn.Module):
         return x
 
 
+class ResNetLSoftmax(ResNet):
+
+    def __init__(self, block, layers, device, num_classes=2, zero_init_residual=False,
+                 groups=1, width_per_group=64, replace_stride_with_dilation=None,
+                 norm_layer=None):
+        super(ResNetLSoftmax, self).__init__(block, layers, num_classes=2, zero_init_residual=False,
+                                    groups=1, width_per_group=64, replace_stride_with_dilation=None,
+                                    norm_layer=None)
+        self.fc = LSoftmaxLinear(input_features=512, output_features=2, margin=2, device=device)
+        self.fc.reset_parameters()
+    
+    def forward(self, x, target=None):
+        x = self.conv1(x)
+        x = self.bn1(x)
+        x = self.relu(x)
+        x = self.maxpool(x)
+
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        x = self.layer4(x)
+
+        x = self.avgpool(x)
+        x = x.reshape(x.size(0), -1)
+        x = self.fc(input=x, target=target)
+
+        return x
+
+
 def _resnet(arch, block, layers, pretrained, progress, **kwargs):
     model = ResNet(block, layers, **kwargs)
     if pretrained:
-        state_dict = load_state_dict_from_url(model_urls[arch],
+        pretrained_dict = load_state_dict_from_url(model_urls[arch],
                                               progress=progress)
-        model.load_state_dict(state_dict)
+        model_dict = model.state_dict()
+        pretrained_dict = {k: v for k, v in pretrained_dict.items() if k != "fc.weight" and k != "fc.bias"}
+        model_dict.update(pretrained_dict)
+        model.load_state_dict(model_dict)
+        # for param in model.parameters():
+        #     param.requires_grad = False
+        # model.fc = nn.Linear(512, 2)
     return model
 
 
@@ -228,6 +266,32 @@ def resnet18(pretrained=False, progress=True, **kwargs):
     """
     return _resnet('resnet18', BasicBlock, [2, 2, 2, 2], pretrained, progress,
                    **kwargs)
+
+
+def _resnet_lsoftmax(arch, block, layers, pretrained, progress, device, **kwargs):
+    model = ResNetLSoftmax(block, layers, device, **kwargs)
+    if pretrained:
+        pretrained_dict = load_state_dict_from_url(model_urls[arch],
+                                              progress=progress)
+        model_dict = model.state_dict()
+        pretrained_dict = {k: v for k, v in pretrained_dict.items() if k != "fc.weight" and k != "fc.bias"}
+        model_dict.update(pretrained_dict)
+        model.load_state_dict(model_dict)
+        # for param in model.parameters():
+        #     param.requires_grad = False
+        # model.fc = nn.Linear(512, 2)
+    return model
+
+
+def resnet18_lsoftmax(pretrained=False, progress=True, device=torch.device("cuda:0"), **kwargs):
+    """Constructs a ResNet-18 model with L-softmax.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet
+        progress (bool): If True, displays a progress bar of the download to stderr
+    """
+    return _resnet_lsoftmax('resnet18', BasicBlock, [2, 2, 2, 2], pretrained, progress, device,
+                            **kwargs)
 
 
 def resnet34(pretrained=False, progress=True, **kwargs):

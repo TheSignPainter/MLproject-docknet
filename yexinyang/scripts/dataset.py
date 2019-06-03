@@ -13,12 +13,19 @@ class DockDataset(data.Dataset):
         self.target = []
 
         # An ImageNet style transform
-        self.transforms = transforms.Compose([
-            # transforms.RandomSizedCrop(max(resize)),
-            # transforms.RandomHorizontalFlip(),
-            transforms.ToTensor(),
-            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-        ])
+        if is_train:
+            self.transforms = transforms.Compose([
+                # transforms.RandomSizedCrop(max(resize)),
+                transforms.RandomHorizontalFlip(),
+                transforms.RandomVerticalFlip(),
+                transforms.ToTensor(),
+                transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+            ])
+        else:
+            self.transforms = transforms.Compose([
+                transforms.ToTensor(),
+                transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+            ])
 
         base_path = Path(featdir)
 
