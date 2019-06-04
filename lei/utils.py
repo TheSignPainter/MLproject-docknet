@@ -22,7 +22,7 @@ def load_dataset(mode):
     np.random.shuffle(files)
     dataset['img'] = files
     dataset['label'] = dataset['img'].apply(lambda x: os.path.basename(x).split('_')[0])
-    print("Load %d training" % (len(dataset['label'])))
+    print("Load %d %s" % (len(dataset['label']), mode))
     return dataset
 
 def loadFromList(imgs, labels, start, end):
