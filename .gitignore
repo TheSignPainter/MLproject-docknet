@@ -114,3 +114,4 @@ data/**/*.jpg
 Lhr/VGG16/bottleneck_fc_model.h5
 Lhr/VGG16/bottleneck_features_train.npy
 Lhr/VGG16/bottleneck_features_validation.npy
+*.h5

@@ -4,6 +4,10 @@ from keras import optimizers
 from keras.models import Sequential
 from keras.layers import Dropout, Flatten, Dense
 from keras.models import Model
+import os
+
+os.environ["CUDA_VISIBLE_DEVICES"]="2,3"
+
 
 # path to the model weights files.
 weights_path = '../keras/examples/vgg16_weights.h5'
@@ -15,7 +19,7 @@ train_data_dir = '../data/train'
 validation_data_dir = '../data/valid'
 nb_train_samples = 5488
 nb_validation_samples = 670
-epochs = 50
+epochs = 500
 batch_size = 16
 
 # build the VGG16 network
@@ -32,15 +36,15 @@ top_model.add(Dense(1, activation='sigmoid'))
 # note that it is necessary to start with a fully-trained
 # classifier, including the top classifier,
 # in order to successfully do fine-tuning
-top_model.load_weights(top_model_weights_path)
+# top_model.load_weights(top_model_weights_path)
 
 # add the model on top of the convolutional base
 model = Model(input= vgg_model.input, output= top_model(vgg_model.output))
 
 # set the first 25 layers (up to the last conv block)
 # to non-trainable (weights will not be updated)
-for layer in model.layers[:25]:
-    layer.trainable = False
+# for layer in model.layers[:25]:
+#    layer.trainable = False
 
 # compile the model with a SGD/momentum optimizer
 # and a very slow learning rate.
@@ -51,8 +55,7 @@ model.compile(loss='binary_crossentropy',
 # prepare data augmentation configuration
 train_datagen = ImageDataGenerator(
     rescale=1. / 255,
-    shear_range=0.2,
-    zoom_range=0.2,
+    vertical_flip=True,
     horizontal_flip=True)
 
 test_datagen = ImageDataGenerator(rescale=1. / 255)
@@ -75,6 +78,6 @@ model.fit_generator(
     samples_per_epoch=nb_train_samples,
     epochs=epochs,
     validation_data=validation_generator,
-    nb_val_samples=nb_validation_samples)
+    nb_val_samples=nb_validation_samples,verbose=2)
 
 model.save("model_full")

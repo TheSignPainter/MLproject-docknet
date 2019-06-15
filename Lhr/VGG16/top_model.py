@@ -27,11 +27,11 @@ top_model_weights_path = 'bottleneck_fc_model.h5'
 def train_top_model():
     train_data = np.load('bottleneck_features_train.npy')
     train_labels = np.array(
-        [1] * (nb_train_docks) + [0] * (nb_train_nodocks))
+        [0] * (nb_train_docks) + [1] * (nb_train_nodocks))
 
     validation_data = np.load('bottleneck_features_validation.npy')
     validation_labels = np.array(
-        [1] * (nb_validation_docks) + [0] * (nb_validation_nodocks))
+        [0] * (nb_validation_docks) + [1] * (nb_validation_nodocks))
 
     model = Sequential()
     model.add(Flatten(input_shape=train_data.shape[1:]))
