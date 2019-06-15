@@ -218,9 +218,9 @@ class ResNetLSoftmax(ResNet):
     def __init__(self, block, layers, device, num_classes=2, zero_init_residual=False,
                  groups=1, width_per_group=64, replace_stride_with_dilation=None,
                  norm_layer=None):
-        super(ResNetLSoftmax, self).__init__(block, layers, num_classes=2, zero_init_residual=False,
-                                    groups=1, width_per_group=64, replace_stride_with_dilation=None,
-                                    norm_layer=None)
+        super(ResNetLSoftmax, self).__init__(block, layers, num_classes, zero_init_residual,
+                                    groups, width_per_group, replace_stride_with_dilation,
+                                    norm_layer)
         self.fc = LSoftmaxLinear(input_features=512, output_features=2, margin=2, device=device)
         self.fc.reset_parameters()
     

@@ -8,4 +8,9 @@ npy_train = npy_root + '/train/'
 npy_valid = npy_root + '/valid/'
 npy_test = npy_root + '/test/'
 
-batch_size = 64
+batch_size = 8
+test_per_epoches = 100
+save_per_epoches = 100
+checkpoint_folder = '/home/lei/2019/ml/proj/MLproject-docknet/lei/checkpoints'
+best_checkpoint_dir = '/home/lei/2019/ml/proj/MLproject-docknet/lei/best_checkpoint'
+ 
